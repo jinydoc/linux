@@ -1,0 +1,28 @@
+I"b<h1 id="wsl-gcc-설치하기">WSL gcc 설치하기</h1>
+<hr />
+<p>터미널에서 gcc를 입력해 봅니다.</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">hojin@DESKTOP-11LMH3B:~$</span><span class="w"> </span>gcc
+<span class="go">Command 'gcc' not found, but can be installed with:
+sudo apt install gcc
+</span></code></pre></div></div>
+<p>gcc는 기본적으로 ubuntu에 설치되어 있지 않습니다. 
+설치 방법에 대해서 자세히 알려 줍니다.</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">sudo apt -y install gcc
+</span></code></pre></div></div>
+
+<p><code class="highlighter-rouge">-y</code> 옵션을 같이 사용하면 중간에 다음과 같은 질문이 있을경우 자동적으로 <code class="highlighter-rouge">y</code>를 선택해 줍니다.</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">Do you want to continue? [Y/n] y
+</span></code></pre></div></div>
+
+<p>설치가 완료된후에 다시 <code class="highlighter-rouge">gcc</code> 명령을 입력해 봅니다.</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">hojin@DESKTOP-11LMH3B:~$</span><span class="w"> </span>gcc <span class="nt">--version</span>
+<span class="go">gcc (Ubuntu 9.3.0-10ubuntu2) 9.3.0
+Copyright (C) 2019 Free Software Foundation, Inc.
+</span><span class="gp">This is free software;</span><span class="w"> </span>see the <span class="nb">source </span><span class="k">for </span>copying conditions.  There is NO
+<span class="gp">warranty;</span><span class="w"> </span>not even <span class="k">for </span>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+</code></pre></div></div>
+:ET

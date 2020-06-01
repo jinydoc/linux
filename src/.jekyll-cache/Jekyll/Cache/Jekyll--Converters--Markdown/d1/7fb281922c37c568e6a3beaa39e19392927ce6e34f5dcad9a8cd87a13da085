@@ -1,0 +1,8 @@
+I"}<h1 id="whoami">whoami</h1>
+<hr />
+<p>시스템에 접속한 당시의 계정명과 접속정보를 확인합니다.</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">hojin@DESKTOP-11LMH3B:~$</span><span class="w"> </span><span class="nb">whoami</span>
+<span class="go">hojin
+</span></code></pre></div></div>
+:ET

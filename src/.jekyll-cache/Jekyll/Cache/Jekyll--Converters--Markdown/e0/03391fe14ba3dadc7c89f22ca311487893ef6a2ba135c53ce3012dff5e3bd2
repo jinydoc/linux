@@ -1,0 +1,8 @@
+I"2<h1 id="패키지-목록-확인">패키지 목록 확인</h1>
+<hr />
+<p>현재 설치되어 있는 패키지들의 목록을 출력합니다.</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">dpkg -l
+</span></code></pre></div></div>
+
+:ET

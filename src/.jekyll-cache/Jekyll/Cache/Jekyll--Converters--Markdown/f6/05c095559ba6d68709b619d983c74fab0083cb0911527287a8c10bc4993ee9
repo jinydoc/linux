@@ -1,0 +1,55 @@
+I"?
+<h1 id="hello-world">Hello World</h1>
+<hr />
+<p>gcc를 이용하여 <code class="highlighter-rouge">hello world</code>를 출력해 보도록 합니다.</p>
+
+<p><br /></p>
+
+<h2 id="환경설정">환경설정</h2>
+<hr />
+<p>실습폴더를 하나 생성합니다.</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">hojin@hojin1:~$</span><span class="w"> </span><span class="nb">mkdir </span>gcc
+<span class="gp">hojin@hojin1:~$</span><span class="w"> </span><span class="nb">cd </span>gcc
+</code></pre></div></div>
+
+<p>vscode를 실행합니다. 
+wsl에서 code 명령을 입력하면, 자동으로 vscode용 wsl remote 프로그램이 설치됩니다.</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">hojin@hojin1:~/gcc$</span><span class="w"> </span>code
+<span class="go">Installing VS Code Server for x64 (5763d909d5f12fe19f215cbfdd29a91c0fa9208a)
+Downloading: 100%
+Unpacking: 100%
+Unpacked 2321 files and folders to /home/hojin/.vscode-server/bin/5763d909d5f12fe19f215cbfdd29a91c0fa9208a.
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="코드작성">코드작성</h2>
+<hr />
+<p>hello.c 코드를 작성합니다.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+</span>
+<span class="kt">void</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"hello world</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>작성한 코드를 컴파일 합니다.</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">hojin@hojin1:~/gcc$</span><span class="w"> </span>gcc hello.c
+<span class="gp">hojin@hojin1:~/gcc$</span><span class="w"> </span><span class="nb">ls</span>
+<span class="go">a.out  hello.c
+</span></code></pre></div></div>
+
+<p>정상적으로 컴파일이 수행되면 <code class="highlighter-rouge">a.out</code> 파일이 생성됩니다. 파일을 실행합니다.</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">hojin@hojin1:~/gcc$</span><span class="w"> </span>./a.out
+<span class="go">hello world
+</span></code></pre></div></div>
+
+<p><code class="highlighter-rouge">hello world</code>가 정상적으로 출력되었습니다.</p>
+
+:ET

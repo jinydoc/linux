@@ -1,0 +1,20 @@
+I"�<h1 id="git-deploy">git deploy</h1>
+
+<p>git init –bare</p>
+
+<p>cd hooks
+vi post-receive</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+git <span class="nt">--work-tree</span><span class="o">=</span>/var/www/html <span class="nt">--git-dir</span><span class="o">=</span>/home/nugupoem/bare.git checkout <span class="nt">-f</span>
+
+</code></pre></div></div>
+
+<p>실행파일 추가</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chmod</span> +x post-receive
+</code></pre></div></div>
+
+<h2 id="개발pc">개발PC</h2>
+
+<p>git remote add server ssh://root@101.101.164.248/home/nugupoem/bare.git</p>
+:ET

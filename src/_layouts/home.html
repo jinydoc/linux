@@ -1,0 +1,29 @@
+---
+layout: default
+---
+<header>
+    {%- include breadcrumb.html -%}
+</header>
+<br>
+<!-- Page Content -->
+<div class="container">
+    <div class="row">
+        <!-- Post Content Column -->
+        <div class="col-lg-9">
+        	<main role="main">
+                <section>
+                    {{ content }}
+                </section>        		
+            </main>
+        </div>
+
+        <!-- Sidebar Column -->
+        <div class="col-md-3">
+        	<aside>
+            	{%- include menu.html -%}
+        	</aside>
+        </div>
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->

@@ -1,0 +1,16 @@
+---
+layout: home
+---
+
+vscode 연동
+우분투 터미널에서 `code .`을 입력합니다.
+다음과 같이 자동으로 vscode를 다운로드 하여 설치를 합니다.
+
+```
+hojin@hojin1:~$ code .
+Installing VS Code Server for x64 (ff915844119ce9485abfe8aa9076ec76b5300ddd)
+Downloading:  45%
+```
+
+보안확인을 클릭합니다.
+![wsl](./img/wsl.png)

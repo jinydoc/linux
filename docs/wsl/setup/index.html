@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--SEO--><title>JinyDev</title><!--부트스트랩4-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <style>
+            img {
+                max-width:100%;
+            }
+        </style>
+
+        <link rel="stylesheet" href="/assets/highlight.css">
+        <link rel="stylesheet" href="/assets/style.css">
+
+        <script data-ad-client="ca-pub-3321560028329475" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    </head>
+    <body>
+
+        <header><nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <!--breadcrumb loop--><li class="breadcrumb-item active">setup</li></ol>    
+</nav></header>
+<br>
+<!-- Page Content -->
+<div class="container">
+    <div class="row">
+        <!-- Post Content Column -->
+        <div class="col-lg-9">
+        	<main role="main">
+                <section>
+                    <h1 id="wsl2-활성화">WSL2 활성화</h1>
+<hr />
+<ul>
+  <li>step1: 최신 윈도우로 버전을 유지해 주세요.</li>
+  <li>step2: 설정-&gt;insider program에 참여를 합니다.</li>
+  <li>step3: windows subsystem for linux 를 활성화 합니다.</li>
+</ul>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">PS C:\Windows\system32&gt;</span><span class="w"> </span>wsl <span class="nt">-l</span>
+<span class="go">Linux 배포용 Windows 하위 시스템:
+Ubuntu-20.04(기본값)
+</span></code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wsl --set-version 우분트 2
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wsl -l -v
+</code></pre></div></div>
+
+<h2 id="putty-ssh-접속">putty SSH 접속</h2>
+<p><a href="https://www.putty.org/">putty</a>를 다운로드 받습니다.</p>
+
+<h2 id="기본설정">기본설정</h2>
+<hr />
+
+<p>시간대 설정
+서버의 설정이 한국/서울로 안되어 있는 경우가 있습니다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+
+<h2 id="로케일locale-변경">로케일(locale) 변경</h2>
+
+<h2 id="관리자sudo">관리자(sudo)</h2>
+
+
+                </section>        		
+            </main>
+        </div>
+
+        <!-- Sidebar Column -->
+        <div class="col-md-3">
+        	<aside><ul class="list-group">
+    <li class="list-group-item"><a href="/setup">WSL설치</a></li>
+    <li class="list-group-item"><a href="/shell">명령어</a></li>
+    <li class="list-group-item"><a href="/gcc">gcc</a> &nbsp;/&nbsp; <a href="/gcc/g2plus">g++</a></li>
+    <li class="list-group-item"><a href="/python">python</a></li>
+</ul>
+<br>
+</aside>
+        </div>
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+ 
+        <div class="container">
+            <!--구글 애드센스-->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-format="fluid"
+                data-ad-layout-key="-fb+5w+4e-db+86"
+                data-ad-client="ca-pub-3321560028329475"
+                data-ad-slot="6043271504"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <!--부트스트랩4-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-160048106-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-160048106-1');
+        </script>
+
+    </body>
+
+</html>

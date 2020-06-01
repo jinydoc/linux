@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--SEO--><title>JinyDev</title><!--부트스트랩4-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <style>
+            img {
+                max-width:100%;
+            }
+        </style>
+
+        <link rel="stylesheet" href="/assets/highlight.css">
+        <link rel="stylesheet" href="/assets/style.css">
+
+        <script data-ad-client="ca-pub-3321560028329475" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    </head>
+    <body>
+
+        <header><nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <!--breadcrumb loop--></ol>    
+</nav></header>
+<br>
+<!-- Page Content -->
+<div class="container">
+    <div class="row">
+        <!-- Post Content Column -->
+        <div class="col-lg-9">
+        	<main role="main">
+                <section>
+                    <h1 id="virtual-host">virtual host</h1>
+<p>아파치 가상호스팅 설정을 할 수 있습니다.</p>
+
+<p>httpd.conf 파일 추가</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Virtual hosts
+Include conf/extra/httpd-vhosts.conf
+</code></pre></div></div>
+
+<h2 id="httpd-vhostconf">httpd-vhost.conf</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NameVirtualHost *:80
+
+&lt;VirtualHost *:80&gt;
+    DocumentRoot "C:\shopping"
+    ServerName shopping.com
+    ServerAlias www.shopping.com      
+&lt;/VirtualHost&gt;
+</code></pre></div></div>
+
+<h2 id="접속권한-설정">접속권한 설정</h2>
+<p>사용자 계정을 생성후에 웹사이트를 실행하게 되면 permission 오류가 발생을 합니다.</p>
+
+<p>해당 계정이 웹서버에 접근을 할 수 있도록 권한을 추가적으로 부여를 해야 합니다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># yum install mod_ruid2
+</code></pre></div></div>
+
+<h2 id="참조">참조</h2>
+<p>https://joont.tistory.com/46
+http://blog.ivps.kr/72</p>
+
+                </section>        		
+            </main>
+        </div>
+
+        <!-- Sidebar Column -->
+        <div class="col-md-3">
+        	<aside><ul class="list-group">
+    <li class="list-group-item"><a href="/setup">WSL설치</a></li>
+    <li class="list-group-item"><a href="/shell">명령어</a></li>
+    <li class="list-group-item"><a href="/gcc">gcc</a> &nbsp;/&nbsp; <a href="/gcc/g2plus">g++</a></li>
+    <li class="list-group-item"><a href="/python">python</a></li>
+</ul>
+<br>
+</aside>
+        </div>
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+ 
+        <div class="container">
+            <!--구글 애드센스-->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-format="fluid"
+                data-ad-layout-key="-fb+5w+4e-db+86"
+                data-ad-client="ca-pub-3321560028329475"
+                data-ad-slot="6043271504"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <!--부트스트랩4-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-160048106-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-160048106-1');
+        </script>
+
+    </body>
+
+</html>

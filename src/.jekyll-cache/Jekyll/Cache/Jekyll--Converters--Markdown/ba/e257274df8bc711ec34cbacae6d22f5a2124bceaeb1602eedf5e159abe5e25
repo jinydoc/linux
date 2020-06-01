@@ -1,0 +1,30 @@
+I"�<h1 id="아파치2-설치">아파치2 설치</h1>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">sudo apt -y install apache2
+</span></code></pre></div></div>
+
+<p>설치 확인</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">hojin@DESKTOP-11LMH3B:~$</span><span class="w"> </span>dpkg <span class="nt">-l</span> | <span class="nb">grep </span>apache
+<span class="go">ii  apache2                        2.4.41-4ubuntu3                   amd64        Apache HTTP Server
+ii  apache2-bin                    2.4.41-4ubuntu3                   amd64        Apache HTTP Server (modules and other binary files)
+ii  apache2-data                   2.4.41-4ubuntu3                   all          Apache HTTP Server (common files)
+ii  apache2-utils                  2.4.41-4ubuntu3                   amd64        Apache HTTP Server (utility programs for web servers)
+</span><span class="gp">hojin@DESKTOP-11LMH3B:~$</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="서버실행">서버실행</h2>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">hojin@DESKTOP-11LMH3B:~$</span><span class="w"> </span><span class="nb">sudo </span>service apache2 start
+<span class="go"> * Starting Apache httpd web server apache2                                                                             [Thu May 21 16:53:45.353412 2020] [core:warn] [pid 13856] (92)Protocol not available: AH00076: Failed to enable APR_TCP_DEFER_ACCEPT
+sleep: cannot read realtime clock: Invalid argument
+sleep: cannot read realtime clock: Invalid argument
+sleep: cannot read realtime clock: Invalid argument
+sleep: cannot read realtime clock: Invalid argument
+ *
+</span></code></pre></div></div>
+
+<h2 id="브라우저-접속">브라우저 접속</h2>
+
+<p>브라우저에서 localhost를 선택합니다.</p>
+:ET

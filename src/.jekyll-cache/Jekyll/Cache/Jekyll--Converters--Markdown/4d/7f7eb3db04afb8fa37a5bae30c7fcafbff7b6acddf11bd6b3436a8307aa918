@@ -1,0 +1,11 @@
+I"L<h1 id="명령어">명령어</h1>
+<hr />
+
+<ul>
+  <li><a href="date">date</a> : 현재의 날짜와 시간을 출력합니다.</li>
+  <li>
+    <p><a href="cal">cal</a>: 달력을 출력합니다.</p>
+  </li>
+  <li><a href="whoami">whoami</a>: 시스템에 접속한 당시의 계정명과 접속정보를 확인합니다.</li>
+</ul>
+:ET

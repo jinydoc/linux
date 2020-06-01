@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--SEO--><title>JinyDev</title><!--부트스트랩4-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <style>
+            img {
+                max-width:100%;
+            }
+        </style>
+
+        <link rel="stylesheet" href="/assets/highlight.css">
+        <link rel="stylesheet" href="/assets/style.css">
+
+        <script data-ad-client="ca-pub-3321560028329475" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    </head>
+    <body>
+
+        <header><nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <!--breadcrumb loop--></ol>    
+</nav></header>
+<br>
+<!-- Page Content -->
+<div class="container">
+    <div class="row">
+        <!-- Post Content Column -->
+        <div class="col-lg-9">
+        	<main role="main">
+                <section>
+                    <h1 id="sqlite3-설치">sqlite3 설치</h1>
+<hr />
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">hojin@DESKTOP-11LMH3B:~$</span><span class="w"> </span>dpkg <span class="nt">-l</span> | <span class="nb">grep </span>sql
+<span class="go">ii  libsqlite3-0:amd64             3.31.1-4                          amd64        SQLite 3 shared library
+</span></code></pre></div></div>
+<p>기본적으로 sqlite3 라이브러리만 설치가 되어 있습니다.</p>
+
+<p>sqlite3를 설치합니다.</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">sudo apt -y install sqlite3
+</span></code></pre></div></div>
+
+<p>|실습결과|</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">hojin@DESKTOP-11LMH3B:~$</span><span class="w"> </span><span class="nb">sudo </span>apt <span class="nt">-y</span> <span class="nb">install </span>sqlite3
+<span class="go">[sudo] password for hojin:
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+Suggested packages:
+  sqlite3-doc
+The following NEW packages will be installed:
+  sqlite3
+0 upgraded, 1 newly installed, 0 to remove and 32 not upgraded.
+Need to get 860 kB of archives.
+After this operation, 2802 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu focal/main amd64 sqlite3 amd64 3.31.1-4 [860 kB]
+Fetched 860 kB in 6s (152 kB/s)
+Selecting previously unselected package sqlite3.
+(Reading database ... 36951 files and directories currently installed.)
+Preparing to unpack .../sqlite3_3.31.1-4_amd64.deb ...
+Unpacking sqlite3 (3.31.1-4) ...
+Setting up sqlite3 (3.31.1-4) ...
+Processing triggers for man-db (2.9.1-1) ...
+</span></code></pre></div></div>
+
+<p>설치가 완료되었습니다. 페키지 목록에서 설치를 확인합니다.</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">hojin@DESKTOP-11LMH3B:~$</span><span class="w"> </span>dpkg <span class="nt">-l</span> | <span class="nb">grep </span>sql
+<span class="go">ii  libsqlite3-0:amd64             3.31.1-4                          amd64        SQLite 3 shared library
+ii  sqlite3                        3.31.1-4                          amd64        Command line interface for SQLite 3
+</span></code></pre></div></div>
+
+<h2 id="실행해-보기">실행해 보기</h2>
+<hr />
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">hojin@DESKTOP-11LMH3B:~$</span><span class="w"> </span>sqlite3
+<span class="go">SQLite version 3.31.1 2020-01-27 19:55:54
+Enter ".help" for usage hints.
+Connected to a transient in-memory database.
+Use ".open FILENAME" to reopen on a persistent database.
+</span><span class="gp">sqlite&gt;</span><span class="w">
+</span></code></pre></div></div>
+
+<p>나가기</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sqlite&gt; .quit
+</code></pre></div></div>
+
+                </section>        		
+            </main>
+        </div>
+
+        <!-- Sidebar Column -->
+        <div class="col-md-3">
+        	<aside><ul class="list-group">
+    <li class="list-group-item"><a href="/setup">WSL설치</a></li>
+    <li class="list-group-item"><a href="/shell">명령어</a></li>
+    <li class="list-group-item"><a href="/gcc">gcc</a> &nbsp;/&nbsp; <a href="/gcc/g2plus">g++</a></li>
+    <li class="list-group-item"><a href="/python">python</a></li>
+</ul>
+<br>
+</aside>
+        </div>
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+ 
+        <div class="container">
+            <!--구글 애드센스-->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-format="fluid"
+                data-ad-layout-key="-fb+5w+4e-db+86"
+                data-ad-client="ca-pub-3321560028329475"
+                data-ad-slot="6043271504"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <!--부트스트랩4-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-160048106-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-160048106-1');
+        </script>
+
+    </body>
+
+</html>
