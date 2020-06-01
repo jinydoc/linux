@@ -2,13 +2,20 @@
 layout: home
 ---
 
-# 아파치2 설치
+# 아파치 웹서버
+
+## 설치
+---
+apt 패키지 메니저를 통하여 apache2 를 설치합니다.
 
 ```console
 sudo apt -y install apache2
 ```
 
-설치 확인
+<br>
+
+## 설치 확인
+---
 
 ```console
 hojin@DESKTOP-11LMH3B:~$ dpkg -l | grep apache
@@ -19,7 +26,11 @@ ii  apache2-utils                  2.4.41-4ubuntu3                   amd64      
 hojin@DESKTOP-11LMH3B:~$
 ```
 
+<br>
+
 ## 서버실행
+---
+설치된 아파치2를 실행합니다.
 
 ```console
 hojin@DESKTOP-11LMH3B:~$ sudo service apache2 start
@@ -31,6 +42,10 @@ sleep: cannot read realtime clock: Invalid argument
  *
 ```
 
-## 브라우저 접속
+<br>
 
-브라우저에서 localhost를 선택합니다.
+## 브라우저 접속
+---
+브라우저에서 `localhost`를 선택합니다.
+
+
