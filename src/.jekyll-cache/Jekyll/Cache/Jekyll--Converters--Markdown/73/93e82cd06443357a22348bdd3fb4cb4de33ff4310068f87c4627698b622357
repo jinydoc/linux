@@ -1,0 +1,40 @@
+I"<h2 id="아파치-설치">아파치 설치</h2>
+<hr />
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install apache2
+</code></pre></div></div>
+
+<p>아파치 index의 기본 경로는 /var/www/html</p>
+
+<h2 id="php-설치">PHP 설치</h2>
+<hr />
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install php
+</code></pre></div></div>
+
+<h3 id="xdebug--설치">xdebug  설치</h3>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">sudo apt install php-pear php-dev
+pecl install xdebug
+</span></code></pre></div></div>
+
+<p>php.ini에 익스텐션을 해주면 된다.</p>
+
+<p>cd /etc/php/7.2/apache2
+sudo vim php.ini</p>
+
+<p>에디터가 열린 상태에서 shift+g 를 누르면 맨 하단으로 내려가고</p>
+
+<p>i를 누르면 insert모드로 변경</p>
+
+<p>맨 하단에</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[XDEBUG]
+zend_extension=/usr/lib/php/20170718/xdebug.so //추가 후
+</code></pre></div></div>
+<p>esc -&gt; :wq 입력</p>
+
+<h2 id="아파치-웹서버-실행">아파치 웹서버 실행</h2>
+
+<p>sudo service apache2 start</p>
+:ET

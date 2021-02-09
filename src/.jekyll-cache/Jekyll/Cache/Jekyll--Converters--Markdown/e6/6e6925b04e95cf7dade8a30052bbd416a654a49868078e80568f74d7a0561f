@@ -1,4 +1,4 @@
-I"@<h1 id="sqlite3-설치">sqlite3 설치</h1>
+I"S<h1 id="sqlite3-설치">sqlite3 설치</h1>
 <hr />
 
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">hojin@DESKTOP-11LMH3B:~$</span><span class="w"> </span>dpkg <span class="nt">-l</span> | <span class="nb">grep </span>sql
@@ -53,6 +53,6 @@ Use ".open FILENAME" to reopen on a persistent database.
 </span></code></pre></div></div>
 
 <p>나가기</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sqlite&gt; .quit
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sqlite&gt; .quit
 </code></pre></div></div>
 :ET

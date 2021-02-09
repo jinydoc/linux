@@ -1,0 +1,21 @@
+I"�<h3 id="확장-설치-copy-and-past">확장 설치 copy and past</h3>
+
+<h4 id="의존-패키지-설치">의존 패키지 설치</h4>
+
+<p>우부투 운영체제의 경우 의존 패키지를 설치합니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo apt-get install -y dkms build-essential linux-headers-generic linux-headers-$(uname -r)
+</code></pre></div></div>
+
+<h4 id="cd롬-삽입">CD롬 삽입</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo mount /dev/cdrom /mnt
+$ cd /mnt
+$ ./VBoxLinuxAdditions.run
+</code></pre></div></div>
+
+<h4 id="리부팅">리부팅</h4>
+
+<p>우분투를 재부팅 합니다.</p>
+
+:ET

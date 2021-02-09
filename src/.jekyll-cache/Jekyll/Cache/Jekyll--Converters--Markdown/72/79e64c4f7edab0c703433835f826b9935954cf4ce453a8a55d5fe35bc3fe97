@@ -1,14 +1,14 @@
-I"s<h1 id="virtual-host">virtual host</h1>
+I"�<h1 id="virtual-host">virtual host</h1>
 <p>아파치 가상호스팅 설정을 할 수 있습니다.</p>
 
 <p>httpd.conf 파일 추가</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Virtual hosts
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Virtual hosts
 Include conf/extra/httpd-vhosts.conf
 </code></pre></div></div>
 
 <h2 id="httpd-vhostconf">httpd-vhost.conf</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NameVirtualHost *:80
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NameVirtualHost *:80
 
 &lt;VirtualHost *:80&gt;
     DocumentRoot "C:\shopping"
@@ -22,7 +22,7 @@ Include conf/extra/httpd-vhosts.conf
 
 <p>해당 계정이 웹서버에 접근을 할 수 있도록 권한을 추가적으로 부여를 해야 합니다.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># yum install mod_ruid2
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># yum install mod_ruid2
 </code></pre></div></div>
 
 <h2 id="참조">참조</h2>

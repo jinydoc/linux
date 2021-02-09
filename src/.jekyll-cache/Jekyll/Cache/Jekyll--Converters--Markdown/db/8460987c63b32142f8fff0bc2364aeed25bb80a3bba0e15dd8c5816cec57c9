@@ -1,4 +1,4 @@
-I"H<h1 id="wsl2-활성화">WSL2 활성화</h1>
+I"�<h1 id="wsl2-활성화">WSL2 활성화</h1>
 <hr />
 <ul>
   <li>step1: 최신 윈도우로 버전을 유지해 주세요.</li>
@@ -11,10 +11,10 @@
 Ubuntu-20.04(기본값)
 </span></code></pre></div></div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wsl --set-version 우분트 2
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wsl --set-version 우분트 2
 </code></pre></div></div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wsl -l -v
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wsl -l -v
 </code></pre></div></div>
 
 <h2 id="putty-ssh-접속">putty SSH 접속</h2>
@@ -26,7 +26,7 @@ Ubuntu-20.04(기본값)
 <p>시간대 설정
 서버의 설정이 한국/서울로 안되어 있는 경우가 있습니다.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
 
 <h2 id="로케일locale-변경">로케일(locale) 변경</h2>
 

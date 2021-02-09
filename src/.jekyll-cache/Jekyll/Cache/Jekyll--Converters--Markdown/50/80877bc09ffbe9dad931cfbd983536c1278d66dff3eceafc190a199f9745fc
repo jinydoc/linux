@@ -1,7 +1,7 @@
-I"�<h1 id="yum">yum</h1>
+I"�<h1 id="yum">yum</h1>
 
 <h2 id="yum-패키지-검색">yum 패키지 검색</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># yum search 패키지명
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># yum search 패키지명
 </code></pre></div></div>
 :ET

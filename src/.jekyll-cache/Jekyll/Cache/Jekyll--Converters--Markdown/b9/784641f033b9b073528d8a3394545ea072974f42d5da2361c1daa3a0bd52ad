@@ -1,0 +1,75 @@
+I"�	<h1 id="nginx-웹서버-설치하기">Nginx 웹서버 설치하기</h1>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo apt-get install nginx
+</code></pre></div></div>
+
+<p>설치가 완료되면 간단하게 버젼을 확인해 볼 수 있습니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>test@test:~$ sudo nginx -v
+nginx version: nginx/1.18.0 (Ubuntu)
+</code></pre></div></div>
+
+<h4 id="아파치-vs-nginx">아파치 vs nginx</h4>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Apache</code>: 요청마다 스레드 혹은 프로세스 생성 및 처리</li>
+  <li><code class="language-plaintext highlighter-rouge">Nginx</code>: 요청마다 비동기 이벤트를 발생시켜 처리</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 시작
+$ sudo service nginx start
+$ sudo systemctl start nginx
+$ sudo /etc/init.d/nginx start
+
+// 재시작
+$ sudo service nginx restart
+$ sudo systemctl restart nginx
+$ sudo /etc/init.d/nginx restart
+
+// 중지
+$ sudo service nginx stop
+$ sudo systemctl stop nginx
+$ sudo /etc/init.d/nginx stop
+
+// 상태
+$ sudo service nginx status
+$ sudo systemctl status nginx
+
+// 설정 reload
+$ sudo service nginx reload
+$ sudo systemctl reload nginx
+$ sudo nginx -s reload
+
+// configuration file syntax check
+$ sudo nginx -t
+</code></pre></div></div>
+
+<h2 id="nginx-설정">nginx 설정</h2>
+
+<ul>
+  <li>package(apt-get을 통한 설치)의 경우: /etc/nginx에 위치</li>
+  <li>직접 compile한 경우: /usr/local/nginx/conf, /usr/local/etc/nginx</li>
+  <li></li>
+</ul>
+
+<h4 id="포트-포워딩">포트 포워딩</h4>
+
+<p>VirtualBox와 같은 환경을 사용할때 포트 포워딩을 추가합니다.</p>
+
+<p><img src="../img/image-20210103183135658.png" alt="image-20210103183135658" /></p>
+
+<h2 id="브라우저-접속">브라우저 접속</h2>
+
+<p>호스트 컴퓨터에서 브라우저를 이용하여 접속합니다.</p>
+
+<p><img src="../img/image-20210103183011803.png" alt="image-20210103183011803" /></p>
+
+<p>만일 포트 번호를 다른번호로 변경한 경우 localhost:포트번호 형태로 입력합니다.</p>
+
+<h4 id="기본포트-변경">기본포트 변경</h4>
+
+<p>기본적으로 80번 포트를 listen 합니다. 이를 수정하고자 할때에는</p>
+
+<p>/etc/ngnix/sites-enabled/default 의 내용을 수정합니다.</p>
+
+:ET

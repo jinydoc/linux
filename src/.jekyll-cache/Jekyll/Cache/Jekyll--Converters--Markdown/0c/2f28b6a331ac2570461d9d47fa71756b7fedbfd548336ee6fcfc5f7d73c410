@@ -1,0 +1,16 @@
+I"�<h1 id="redis">Redis</h1>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo apt install redis-server redis-tools
+</code></pre></div></div>
+
+<p>시작 /중지</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ service redis-server start # 시작
+
+</code></pre></div></div>
+
+<p>연동</p>
+
+<p>$ redis-cli</p>
+
+:ET

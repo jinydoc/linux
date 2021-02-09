@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--SEO--><title>Linux로 개발하기</title><!--부트스트랩4-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <style>
+            img {
+                max-width:100%;
+            }
+        </style>
+
+        <link rel="stylesheet" href="/assets/highlight.css">
+        <link rel="stylesheet" href="/assets/style.css">
+
+        <script data-ad-client="ca-pub-3321560028329475" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    </head>
+    <body>
+
+        <header>
+    
+</header>
+<br>
+<!-- Page Content -->
+<div class="container"><nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <!--breadcrumb loop--></ol>    
+</nav><div class="row">
+        <!-- Post Content Column -->
+        <div class="col-lg-9">
+        	<main role="main">
+                <section>
+                    <h1 id="ssh-설치하기">SSH 설치하기</h1>
+
+<h2 id="01방화벽-설정">01.방화벽 설정</h2>
+
+<h3 id="011-포트-접속-허용">01.1 포트 접속 허용</h3>
+
+<p>22번 포트로 ssh를 접속하기 위해서는 방화벽을 허용해 주어야 합니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$sudo ufw allow 22
+</code></pre></div></div>
+
+<p>포트 접속을  허용하였다면 방화벽을 다시 로드 합니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ufw reload
+</code></pre></div></div>
+
+<h3 id="012-포트-포워딩-설정">01.2 포트 포워딩 설정</h3>
+
+<p>VirtualBox와 같은 가상환경을 사용하는 경우 추가로 포트 포워딩 설정이 필요 합니다. VirtualBox에서 [장치]&gt;[네트워크]&gt;[네트워크설정] 을 클릭합니다.</p>
+
+<p><img src="../img/image-20210103114955773.png" alt="image-20210103114955773" /></p>
+
+<p>네트워크 설정창이 표시됩니다. 중간에 있는 [고급] 화살표 버튼을 클릭하여 설정을 확장합니다.</p>
+
+<p><img src="../img/image-20210103115108011.png" alt="image-20210103115108011" /></p>
+
+<p>[포트 포워딩]을 선택합니다. 오른쪽에 있는 [+] 버튼을 선택합니다.</p>
+
+<p><img src="../img/image-20210103115246949.png" alt="image-20210103115246949" /></p>
+
+<p>새로운 포트 포워딩 rule을 추가 합니다. 로컬의 22번 포트를 VirtualBox의 22번 포트로 포워딩을 통하여 접근을 연결합니다.</p>
+
+<p><img src="../img/image-20210103115350679.png" alt="image-20210103115350679" /></p>
+
+<h2 id="02openssh-설치하기">02.OpenSSH 설치하기</h2>
+
+<p>SSH로 서버에 접속을 하기 위해서는 openssh 서버를 설치해 주어야 합니다.</p>
+
+<h3 id="021-준비작업">02.1 준비작업</h3>
+
+<p>update는 새로운 버젼의 패키지들이 있는지 확인을 합니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo apt update
+</code></pre></div></div>
+
+<p>갱신 최신 패키지 목록을 통하여 각각의 패키지들의 버젼을 업그레이드 해 줍니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo apt upgrade
+</code></pre></div></div>
+
+<blockquote>
+  <p>update는 패키지의 목록을 갱신하는 것이고, upgrade는 갱신된 목록에 따라 설치된 패키지를 업그레이드 하는 동작입니다.</p>
+</blockquote>
+
+<h3 id="022-ssh-재설치">02.2 SSH 재설치</h3>
+
+<p>만일 기존에 SSH서버가 설치가 되었다면, 충돌을 방지하기 위해서 완전삭제(purge) 합니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo apt purge openssh-server
+</code></pre></div></div>
+
+<p>openssh-server를  설치 합니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo apt install openssh-server
+</code></pre></div></div>
+
+<h3 id="023-재시작">02.3 재시작</h3>
+
+<p>SSH 서버를 <strong>완전</strong> 재시작 해 준다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo service ssh --full-restart
+$ sudo service ssh restart
+</code></pre></div></div>
+
+<p>또는</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$sudo systemctl restart ssh
+</code></pre></div></div>
+
+<h3 id="024-방화벽-허용">02.4 방화벽 허용</h3>
+
+<p>만일 WSL 과 같은 환경에서 실행하는 경우 windows defender가 실행이 됩니다.  방화벽을 허용해 줍니다.</p>
+
+<p><img src="../img/image-20210102164212303.png" alt="image-20210102164212303" /></p>
+
+<h2 id="03root-접속-허용">03.root 접속 허용</h2>
+
+<p>기본적으로 리눅스 배포폰은 root 접속을 허용하지 않습니다. 보안상 root 접속을 허용하는 것은 좋지 않다. 하지만, 내부 개발용으로 사용시 편의를 의해서 root를 허용하고자 할때 다음과 같이 하면 된다.</p>
+
+<h3 id="031-설정파일-수정">03.1 설정파일 수정</h3>
+
+<p>/etc/ssh/sshd_config 파일을 수정합니다. vi를 통하여 수정합니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo vi /etc/ssh/sshd_config
+</code></pre></div></div>
+
+<p>vi 에디터가 실행됩니다. <code class="language-plaintext highlighter-rouge">esc+i</code>를 선택하여 입력 모드로 전환합니다. 그리고, 다음과 같은 라인을 찾아서 수정합니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#PermitRootLogin prohibit-password
+PermitRootLogin yes
+</code></pre></div></div>
+
+<p>설정부분에서 PermitRootLogin 주석을 제거해 주거나, 아래에 다시 작성을 합니다. prohibit-password 대신에 yes를 적어 줍니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">esc+:wq</code>를 입력하여 저장후 종료합니다.</p>
+
+<h3 id="032-ssh-재시작">03.2 ssh 재시작</h3>
+
+<p>ssh 서버를 재시작 합니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo systemctl restart sshd
+
+</code></pre></div></div>
+
+<h3 id="033-루트-암호-변경하기">03.3 루트 암호 변경하기</h3>
+
+<p>기본적으로 루트의 암호는 Ubuntu 20.04에 설정되어 있지 않으며 Permission denied라는 오류 메시지가 나타납니다.</p>
+
+<p>루트 사용자로 SSH 로그인을 시도하면 다시 시도하십시오. 이러한 이유로 우리는 루트의 암호를 설정해야합니다. 프롬프트가 표시되면 현재 사용자 비밀번호와 새 루트 비밀번호를 입력하십시오.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo passwd
+[sudo] password for linuxconfig: 
+Enter new UNIX password: 
+Retype new UNIX password: 
+passwd: password updated successfully
+</code></pre></div></div>
+
+<h3 id="034-root로-putty-접속해-보기">03.4 root로 putty 접속해 보기</h3>
+
+<p>putty를 다시 실행합니다. 로그인 창에서 아이디를 root로 입력합니다.</p>
+
+<p><img src="../img/image-20210103122209602.png" alt="image-20210103122209602" /></p>
+
+<p>루트로 SSH가 접속된 것을 확인할 수 있습니다.</p>
+
+
+                </section>        		
+            </main>
+        </div>
+
+        <!-- Sidebar Column -->
+        <div class="col-md-3">
+        	<aside><ul class="list-group">
+    <li class="list-group-item"><a href="/setup">WSL설치</a></li>
+    <li class="list-group-item"><a href="/shell">명령어</a></li>
+    <li class="list-group-item"><a href="/gcc">gcc</a> &nbsp;/&nbsp; <a href="/gcc/g2plus">g++</a></li>
+    <li class="list-group-item"><a href="/python">python</a></li>
+</ul>
+<br>
+</aside>
+        </div>
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+ 
+        <div class="container">
+            <!--구글 애드센스-->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-format="fluid"
+                data-ad-layout-key="-fb+5w+4e-db+86"
+                data-ad-client="ca-pub-3321560028329475"
+                data-ad-slot="6043271504"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <!--부트스트랩4-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-160048106-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-160048106-1');
+        </script>
+
+    </body>
+
+</html>

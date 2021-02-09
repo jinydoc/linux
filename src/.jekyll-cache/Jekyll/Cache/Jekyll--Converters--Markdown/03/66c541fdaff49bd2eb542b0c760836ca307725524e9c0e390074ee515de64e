@@ -1,9 +1,9 @@
-I"�<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># wget https://bitnami.com/redirect/to/654754/bitnami-lampstack-7.2.21-0-linux-x64-installer.run</span>
+I"<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># wget https://bitnami.com/redirect/to/654754/bitnami-lampstack-7.2.21-0-linux-x64-installer.run</span>
 </code></pre></div></div>
 
 <p>퍼미션을 변경합니다.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># chmod 755 bitnami-lampstack-7.2.21-0-linux-x64-installer.run
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># chmod 755 bitnami-lampstack-7.2.21-0-linux-x64-installer.run
 
 </code></pre></div></div>
 

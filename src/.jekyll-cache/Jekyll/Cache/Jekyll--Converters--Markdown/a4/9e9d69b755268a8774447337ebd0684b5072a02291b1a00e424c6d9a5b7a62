@@ -1,4 +1,4 @@
-I"�<h1 id="php-72-centos-설치">php 7.2 centos 설치</h1>
+I"�<h1 id="php-72-centos-설치">php 7.2 centos 설치</h1>
 
 <p>CentOS는 yum을 이용하여 php 페키지를 설치할 수 있습니다.</p>
 
@@ -36,7 +36,7 @@ To enable Remi PHP 7.3 repository, run the command below.</p>
 
 <p>설치를 확인합니다.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[root@jiny ~]# php -v
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[root@jiny ~]# php -v
 PHP 7.3.8 (cli) (built: Jul 30 2019 09:26:16) ( NTS )
 Copyright (c) 1997-2018 The PHP Group
 Zend Engine v3.3.8, Copyright (c) 1998-2018 Zend Technologies
@@ -56,7 +56,7 @@ yum install php-<extension_name></extension_name></p>
 
 <p>yum install php-mysql php-pdo</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># rpm -Uvh http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># rpm -Uvh http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 [root@jiny ~]# rpm -Uvh http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 Retrieving http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 warning: /var/tmp/rpm-tmp.raA66z: Header V4 DSA/SHA1 Signature, key ID 00f97f56: NOKEY
@@ -67,12 +67,12 @@ error: Failed dependencies:
 
 <p>Install yum-utils as we need the yum-config-manager utility.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yum install yum-utils
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yum install yum-utils
 </code></pre></div></div>
 
 <p>그리고 yum을 최신으로 업데이트 합니다.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yum update
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yum update
 </code></pre></div></div>
 
 <p>Now you have to chose which PHP version you want to use on the server. If you like to use PHP 5.4, then proceed to chapter 4.1. To install PHP 7.0, follow the commands in chapter 4.2, for PHP 7.1 chapter 4.3, for PHP 7.4 use chapter 4.4 and for PHP 7.3 follow chapter 4.5 instead. Follow just one of the 4.x chapters and not all of them as you can only use one PHP version at a time with Apache mod_php.</p>
@@ -80,36 +80,36 @@ error: Failed dependencies:
 <h3 id="php-54">php 5.4</h3>
 <p>권장하지 않습니다. 기본적으로 설치되어 있는 오래된 버전입니다.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># yum install php
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># yum install php
 </code></pre></div></div>
 <p>명령을 입력하면 설치할 수 있습니다.</p>
 
 <h3 id="70">7.0</h3>
 <p>We can install PHP 7.0 and the Apache PHP 7.0 module as follows:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yum-config-manager --enable remi-php70
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yum-config-manager --enable remi-php70
 yum install php php-opcache
 </code></pre></div></div>
 
 <h3 id="71">7.1</h3>
 <p>If you want to use PHP 7.1 instead, use:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yum-config-manager --enable remi-php71
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yum-config-manager --enable remi-php71
 yum install php php-opcache
 </code></pre></div></div>
 
 <h3 id="73">7.3</h3>
 <p>If you want to use PHP 7.3 instead, use:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># yum-config-manager --enable remi-php73
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># yum-config-manager --enable remi-php73
 # yum install php php-opcache
 </code></pre></div></div>
 
 <h2 id="확인-및-테스트">확인 및 테스트</h2>
 <p>웹서버의 기본 문서 위치는 /var/www/html 입니다. 이 위치에 테스트를 위한 php 파일을 만들어 보도록 합니다.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
-<span class="nb">phpinfo</span><span class="p">();</span>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?php
+phpinfo();
 </code></pre></div></div>
 
 <h2 id="참조-블로그-및-url">참조 블로그 및 url</h2>

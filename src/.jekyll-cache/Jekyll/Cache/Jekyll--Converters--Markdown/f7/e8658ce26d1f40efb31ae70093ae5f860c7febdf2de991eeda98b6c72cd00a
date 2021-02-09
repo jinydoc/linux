@@ -1,0 +1,18 @@
+I"�<h1 id="ubuntu">ubuntu</h1>
+<hr />
+
+<h2 id="버젼확인하기">버젼확인하기</h2>
+<hr />
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">hojin@hojin1:~$</span><span class="w"> </span><span class="nb">cat</span> /etc/issue
+<span class="go">Ubuntu 20.04 LTS \n \l
+</span></code></pre></div></div>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">hojin@hojin1:~$</span><span class="w"> </span>lsb_release <span class="nt">-a</span>
+<span class="go">No LSB modules are available.
+Distributor ID: Ubuntu
+Description:    Ubuntu 20.04 LTS
+Release:        20.04
+Codename:       focal
+</span></code></pre></div></div>
+:ET

@@ -1,0 +1,22 @@
+I"�<h1 id="ssh-접속하기">SSH 접속하기</h1>
+<p><code class="language-plaintext highlighter-rouge">ssh</code>를 이용하여 리눅스 서버에 접속을 합니다.</p>
+
+<h2 id="01ssh-설치하기">01.ssh 설치하기</h2>
+<p>ssh를 통하여 서버에 접속을 하기 위해서는 별도의 ssh 서비스 서버 프로그램을 설치해 주셔야 합니다.
+ssh 서버를 구축하기 위해서는 2단계 작업이 필요 합니다.</p>
+
+<ul>
+  <li><a href="setup">방화벽 허용하기</a></li>
+  <li><a href="setup">ssh 패키지 설치하기</a></li>
+  <li><a href="setup">root로 접속 허용하기</a></li>
+</ul>
+
+<h2 id="02ssh로-터미널-접속하기">02.ssh로 터미널 접속하기</h2>
+<p>ssh로 터미널 접속을 하기 위해서는 전용 프로그램이 필요 합니다.</p>
+
+<ul>
+  <li><a href="terminal">putty</a></li>
+  <li><a href="terminal">MobaXterm</a></li>
+</ul>
+
+:ET

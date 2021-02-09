@@ -1,4 +1,4 @@
-I"b<h1 id="wsl-g-설치하기">WSL g++ 설치하기</h1>
+I"u<h1 id="wsl-g-설치하기">WSL g++ 설치하기</h1>
 <hr />
 
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">hojin@DESKTOP-11LMH3B:~$</span><span class="w"> </span>g++ <span class="nt">--version</span>
@@ -11,7 +11,7 @@ sudo apt install g++
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">sudo apt -y install g++
 </span></code></pre></div></div>
 
-<p>설치가 완료된후에 다시 <code class="highlighter-rouge">g++</code> 명령을 입력해 봅니다.</p>
+<p>설치가 완료된후에 다시 <code class="language-plaintext highlighter-rouge">g++</code> 명령을 입력해 봅니다.</p>
 
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">hojin@DESKTOP-11LMH3B:~$</span><span class="w"> </span>g++ <span class="nt">--version</span>
 <span class="go">g++ (Ubuntu 9.3.0-10ubuntu2) 9.3.0

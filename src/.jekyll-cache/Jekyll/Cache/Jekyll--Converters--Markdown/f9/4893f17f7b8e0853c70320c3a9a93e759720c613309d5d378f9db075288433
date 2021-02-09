@@ -1,16 +1,16 @@
-I"9<h1 id="아파치-설치">아파치 설치</h1>
+I"�<h1 id="아파치-설치">아파치 설치</h1>
 
 <h2 id="centos">centos</h2>
 <p>centos linux에서는 yum을 통하여 아파치를 설치할 수 있습니다.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># yum install httpd
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># yum install httpd
 </code></pre></div></div>
 
 <p>또는</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># yum -y install httpd
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># yum -y install httpd
 </code></pre></div></div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>================================================================================
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>================================================================================
  Package           Arch         Version                     Repository     Size
 ================================================================================
 Installing:
@@ -33,7 +33,7 @@ Is this ok [y/d/N]:
 <h2 id="아파치-실행하기">아파치 실행하기</h2>
 <p>리눅스 서버에 아파치가 설치가 되었다면 서버를 실행합니다.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[root@jiny ~]# systemctl start httpd
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[root@jiny ~]# systemctl start httpd
 [root@jiny ~]# 
 </code></pre></div></div>
 
@@ -41,7 +41,7 @@ Is this ok [y/d/N]:
 
 <p>상태를 통하여 서버 실행 여부를 확인합니다.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[root@jiny ~]# systemctl status httpd
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[root@jiny ~]# systemctl status httpd
 ● httpd.service - The Apache HTTP Server
    Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled; vendor preset: disabled)
    Active: active (running) since Sun 2019-08-11 18:48:36 KST; 1min 7s ago
@@ -68,7 +68,7 @@ Hint: Some lines were ellipsized, use -l to show in full.
 <h3 id="자동실행추가">자동실행추가</h3>
 <p>만일 서버가 재시작을 할경우에, 아파치 웹서버는 자동으로 실행이 되지 않습니다. 수동으로 실행 명령을 다시 해주어야 합니다.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 [root@jiny ~]# systemctl enable httpd.service
 Created symlink from /etc/systemd/system/multi-user.target.wants/httpd.service to /usr/lib/systemd/system/httpd.service.
 

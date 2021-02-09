@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--SEO--><title>Linux로 개발하기</title><!--부트스트랩4-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <style>
+            img {
+                max-width:100%;
+            }
+        </style>
+
+        <link rel="stylesheet" href="/assets/highlight.css">
+        <link rel="stylesheet" href="/assets/style.css">
+
+        <script data-ad-client="ca-pub-3321560028329475" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    </head>
+    <body>
+
+        <header>
+    
+</header>
+<br>
+<!-- Page Content -->
+<div class="container"><nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <!--breadcrumb loop--></ol>    
+</nav><div class="row">
+        <!-- Post Content Column -->
+        <div class="col-lg-9">
+        	<main role="main">
+                <section>
+                    <h1 id="postgresql-설치하기">PostgreSql 설치하기</h1>
+
+<h4 id="준비하기">준비하기</h4>
+
+<p>페키지 목록을 최신 상태로 유지합니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo apt update
+</code></pre></div></div>
+
+<p>설치하기</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo apt-get install postgresql postgresql-contrib
+</code></pre></div></div>
+
+<p>postgresql 설치시 기본적으로 postgres 계정이 생성됩니다.</p>
+
+<p>postgres 계정은 PostgreSql을 관리하기 위한 계정 입니다.</p>
+
+<p>postgres 계정으로 변경합니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo -i -u postgres
+</code></pre></div></div>
+
+<h2 id="db-접속하기">DB 접속하기</h2>
+
+<p>psql 명령을 입력하여 DB에 접속해 봅니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>postgres@test:~$ psql
+psql (12.5 (Ubuntu 12.5-0ubuntu0.20.04.1))
+Type "help" for help.
+
+postgres=#
+</code></pre></div></div>
+
+<p>현재 설치된 버젼은 12.5 입니다.</p>
+
+<p>또는 sudo 계정으로 postgreSql에 바로 접속을 할때에는 다음과 같이 입력합니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo -u postgres pgsql
+</code></pre></div></div>
+
+<p>test 사용자 계정에서 다음과 같이 postgreSql로 바로 진입하는 것을 볼 수 있다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>test@test:~$ sudo -u postgres psql
+psql (12.5 (Ubuntu 12.5-0ubuntu0.20.04.1))
+Type "help" for help.
+
+</code></pre></div></div>
+
+<h4 id="종료하기">종료하기</h4>
+
+<p>postgreSql에서 종료하고 나갈때는 <code class="language-plaintext highlighter-rouge">\q</code>를 입력합니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>postgres=# \q
+postgres@test:~$
+</code></pre></div></div>
+
+<h2 id="사용자-추가">사용자 추가</h2>
+
+<p>새로운 사용자를 추가할때</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>test@test:~$ sudo -i -u postgres
+postgres@test:~$ createuser --interactive
+Enter name of role to add: jiny
+Shall the new role be a superuser? (y/n) y
+</code></pre></div></div>
+
+<p>새로운 사용자를 추가할 때에는 <code class="language-plaintext highlighter-rouge">createuser</code> 명령을 사용합니다. 이때 옵션 <code class="language-plaintext highlighter-rouge">--interactive</code>을 같이 입력합니다.</p>
+
+<p>새로운 사용자 명을 입력 받고, 이 유저가 superuser 인지를 물어 봅니다.</p>
+
+<p>createuser 명령에 대한 자세한 사용법은</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>man createuser
+</code></pre></div></div>
+
+<p>를 입력합니다.</p>
+
+<h4 id="db-생성하기">DB 생성하기</h4>
+
+<p>새로운 db를 생성할때는 createdb 명령을 사용합니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>postgres@test:~$ createdb jinyphp
+</code></pre></div></div>
+
+<h4 id="리눅스-계정">리눅스 계정</h4>
+
+<p>postgreSql은 데이터베이스와 동일한 리눅스 계정이 필요합니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>test@test:~$ sudo adduser jinyphp
+Adding user `jinyphp' ...
+Adding new group `jinyphp' (1001) ...
+Adding new user `jinyphp' (1001) with group `jinyphp' ...
+Creating home directory `/home/jinyphp' ...
+Copying files from `/etc/skel' ...
+
+</code></pre></div></div>
+
+<blockquote>
+  <p>즉, PostgreSQl 데이터베이스 명과 postgres 사용자명과 리눅스 계정이 동일하게 필요합니다.</p>
+</blockquote>
+
+<p>이제 만들어진 계정으로 데이터베이스를 접속해 봅니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+test@test:~$ sudo -u jinyphp psql -d jinyphp
+psql (12.5 (Ubuntu 12.5-0ubuntu0.20.04.1))
+Type "help" for help.
+
+jinyphp=#
+
+</code></pre></div></div>
+
+<p>DB 접속정보를 확인합니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jinyphp=# \conninfo
+You are connected to database "jinyphp" as user "jinyphp" via socket in "/var/run/postgresql" at port "5432".
+</code></pre></div></div>
+
+<p>테이블 확인 <code class="language-plaintext highlighter-rouge">\d</code></p>
+
+<p>타입이 table인 것만 확인하려면 \dt 명령으로 확인할 수 있다.</p>
+
+<p>쿼리를 통한 사용자 계정 추가</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>postgres=# CREATE USER 아이디 WITH PASSWORD '비밀번호';
+</code></pre></div></div>
+
+<p>데이터베이스 생성</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>postgres=# CREATE DATABASE 데이터베이스명 OWNER 아이디;
+</code></pre></div></div>
+
+<p>스키마</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>postgres=# CREATE SCHEMA 스키마 AUTHORIZATION 아이디;
+
+-- public 스키마가 아닌 별도의 스키마를 생성해서 사용하려면 search_path 를 잡아주는 것이 편하다.
+-- search_path는 탐색할 스키마의 순서를 지정해주는 변수다.
+-- show search_path;
+postgres=# alter USER bcadmin set search_path = 'bcpaltform';
+</code></pre></div></div>
+
+
+                </section>        		
+            </main>
+        </div>
+
+        <!-- Sidebar Column -->
+        <div class="col-md-3">
+        	<aside><ul class="list-group">
+    <li class="list-group-item"><a href="/setup">WSL설치</a></li>
+    <li class="list-group-item"><a href="/shell">명령어</a></li>
+    <li class="list-group-item"><a href="/gcc">gcc</a> &nbsp;/&nbsp; <a href="/gcc/g2plus">g++</a></li>
+    <li class="list-group-item"><a href="/python">python</a></li>
+</ul>
+<br>
+</aside>
+        </div>
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+ 
+        <div class="container">
+            <!--구글 애드센스-->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-format="fluid"
+                data-ad-layout-key="-fb+5w+4e-db+86"
+                data-ad-client="ca-pub-3321560028329475"
+                data-ad-slot="6043271504"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <!--부트스트랩4-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-160048106-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-160048106-1');
+        </script>
+
+    </body>
+
+</html>
