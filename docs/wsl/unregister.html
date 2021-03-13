@@ -33,30 +33,30 @@
         <div class="col-lg-9">
         	<main role="main">
                 <section>
-                    <h1 id="wsl-설치하기">WSL 설치하기</h1>
+                    <h1 id="설치된-wsl-삭제하기">설치된 wsl 삭제하기</h1>
 <hr />
-<p>윈도우 운영체제에 windows subsystem linux 를 설치합니다.</p>
+<p>윈도우에 설치된 wsl을 console 명령을 통하여 삭제할 수 있습니다. 
+먼저 시스템에 설치되어 있는 wsl 목록을 확인합니다.</p>
 
-<p><br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\&gt; wsl -l
+Linux용 Windows 하위 시스템 배포:
+Ubuntu-20.04(기본값)
+</code></pre></div></div>
 
-<h2 id="sotre에서-설치하기">sotre에서 설치하기</h2>
-<hr />
-<p>wsl은 <code class="language-plaintext highlighter-rouge">windows store</code>를 통하여 설치할 수 있습니다. store에 접속하여 <code class="language-plaintext highlighter-rouge">ubuntu</code>를 검색합니다.</p>
+<p>현재 시스템에 <code class="language-plaintext highlighter-rouge">Ubuntu-20.04</code> 한개가 설치되어 있습니다.<br />
+wsl 명령의 <code class="language-plaintext highlighter-rouge">--unregister</code> 옵션을 통하여 설치된 우분트를 삭제합니다.</p>
 
-<p><img src="D:\jinydev\linux\src\wsl\setup\img\image-20210313160018686.png" alt="image-20210313160018686" /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\&gt; wsl --unregister Ubuntu-20.04
+등록 취소 중...
+</code></pre></div></div>
 
-<p><code class="language-plaintext highlighter-rouge">시작</code> 버튼을 클릭하여 우분투를 설치합니다.</p>
+<p>삭제후 다시 목록을 확인해 보도록 합니다.</p>
 
-<p>잠시후 설치가 완료되면 우분투 시스템의 계정과 비밀번호를 입력하는 콘솔 창이 실행이 됩니다.</p>
-
-<p><img src="D:\jinydev\linux\src\wsl\setup\img\image-20210313160203732.png" alt="image-20210313160203732" /></p>
-
-<p>우분투에서 요구하는 <code class="language-plaintext highlighter-rouge">사용자</code>명, <code class="language-plaintext highlighter-rouge">비밀번호</code>를 입력하면 다음과 같이 로그인을 합니다.</p>
-
-<p><img src="D:\jinydev\linux\src\wsl\setup\img\image-20210313160339557.png" alt="image-20210313160339557" /></p>
-
-<p>다음서 부터는 우분투 실행시 생성한 계정으로 <code class="language-plaintext highlighter-rouge">자동 접속</code>을 하게 됩니다.</p>
-
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\&gt; wsl -l
+Linux용 Windows 하위 시스템에 배포가 설치되어 있지 않습니다.
+아래의 Microsoft Store에서 배포를 설치할 수 있습니다.
+https://aka.ms/wslstore
+</code></pre></div></div>
 
                 </section>        		
             </main>

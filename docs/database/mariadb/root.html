@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--SEO--><title>Linux로 개발하기</title><!--부트스트랩4-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <style>
+            img {
+                max-width:100%;
+            }
+        </style>
+
+        <link rel="stylesheet" href="/assets/highlight.css">
+        <link rel="stylesheet" href="/assets/style.css">
+
+        <script data-ad-client="ca-pub-3321560028329475" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    </head>
+    <body>
+
+        <header>
+    
+</header>
+<br>
+<!-- Page Content -->
+<div class="container"><nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <!--breadcrumb loop--></ol>    
+</nav><div class="row">
+        <!-- Post Content Column -->
+        <div class="col-lg-9">
+        	<main role="main">
+                <section>
+                    <h1 id="root-설정하기">root 설정하기</h1>
+<hr />
+<p>앞에서 우리는 비밀번호를 지정하지 않아도 MariaDB에 접속이 가능하였습니다.</p>
+
+<p>Mysql 명령어만 실행하면, 현재 운영체제 사용자와 같은 이름인 root로 비밀번호 없이 접속이 되는 것이다.</p>
+
+<p><br /></p>
+
+<h2 id="root-비밀번호">root 비밀번호</h2>
+<hr />
+<p>비밀번호 없이 데이터베이스 접속하는 것은 보안측면에서 좋지 않습니다. 
+보안을 위해서 root 비밀번호를 설정합니다. 다음과 같이 명령을 입력합니다.</p>
+
+<p>기본적으로 패키지만 설치하는 경우 root 암호가 없다. 별도로 지정을 해주어야 한다.</p>
+
+<p>DB를 설치할 때 root 사용자가 하나 추가 된다.</p>
+
+<h4 id="mysqladmin">mysqladmin</h4>
+
+<p>mysqladmin 유틸리티를 통한 비밀번호를 변경합니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo mysqladmin -u root password '패스워드'
+</code></pre></div></div>
+
+<p>이렇게 설정한 패스워드는 mysql 접속시 다음과 같이 입력합니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Mysql -u 사용자명 -p
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="mysql-root-비빌번호-분실">mysql root 비빌번호 분실</h2>
+<hr />
+<p>root 비밀번호를 분실한 경우 다음과 같이 재설정한다.</p>
+
+<h4 id="step1-mysqld-중지">step1. mysqld 중지</h4>
+<p>먼저 마리아DB 서버데몬을 중지합니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo systemctl stop mariadb
+</code></pre></div></div>
+
+<p>마리아DB를 <code class="language-plaintext highlighter-rouge">안전 모드</code>로 실행을 합니다. 
+다음과 같이 mysql_safe 스크립트를 통하여 실행이 가능합니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo /usr/bin/mysqld_safe --skip-grant &amp;
+</code></pre></div></div>
+
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">&amp;</code> 표시를 같이하게 되면, <code class="language-plaintext highlighter-rouge">백그라운드</code> 모드로 마리아DB가 실행이 됩니다.</p>
+</blockquote>
+
+<h4 id="step2-root계정-비밀번호-변경">step2. root계정 비밀번호 변경</h4>
+
+<p>백그라운드로 실행되는 마리아DB에 접속을 합니다. 이때 패스워드는 지정하지 않아도 됩니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo mysql -u root
+</code></pre></div></div>
+
+<p>sql 쿼리를 이용하여 root 사용자의 패스워드를 변경합니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>MariaDB [mysql]&gt; update user set password=password('변경할 비밀번호') where user='root';
+MariaDB [mysql]&gt; flush privileges;
+MariaDB [mysql]&gt; exit;
+</code></pre></div></div>
+
+<h4 id="step3-접속-확인">step3. 접속 확인</h4>
+<p>변경한 패스워드를 이용하여 접속을 테스트 해봅니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql -uroot -p
+Enter password:
+MariaDB [(none)]&gt; 
+</code></pre></div></div>
+
+<h4 id="step4-서비스-재시작">step4. 서비스 재시작</h4>
+<p>root 비밀번호가 잘 변경이 되었다면, 마리아DB를 재실행 합니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo systemctl stop mariadb
+$ sudo systemctl start mariadb
+</code></pre></div></div>
+
+
+                </section>        		
+            </main>
+        </div>
+
+        <!-- Sidebar Column -->
+        <div class="col-md-3">
+        	<aside><ul class="list-group">
+    <li class="list-group-item"><a href="/setup">WSL설치</a></li>
+    <li class="list-group-item"><a href="/shell">명령어</a></li>
+    <li class="list-group-item"><a href="/gcc">gcc</a> &nbsp;/&nbsp; <a href="/gcc/g2plus">g++</a></li>
+    <li class="list-group-item"><a href="/python">python</a></li>
+</ul>
+<br>
+</aside>
+        </div>
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+ 
+        <div class="container">
+            <!--구글 애드센스-->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-format="fluid"
+                data-ad-layout-key="-fb+5w+4e-db+86"
+                data-ad-client="ca-pub-3321560028329475"
+                data-ad-slot="6043271504"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <!--부트스트랩4-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-160048106-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-160048106-1');
+        </script>
+
+    </body>
+
+</html>

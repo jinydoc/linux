@@ -1,0 +1,81 @@
+I"�<h1 id="root-설정하기">root 설정하기</h1>
+<hr />
+<p>앞에서 우리는 비밀번호를 지정하지 않아도 MariaDB에 접속이 가능하였습니다.</p>
+
+<p>Mysql 명령어만 실행하면, 현재 운영체제 사용자와 같은 이름인 root로 비밀번호 없이 접속이 되는 것이다.</p>
+
+<p><br /></p>
+
+<h2 id="root-비밀번호">root 비밀번호</h2>
+<hr />
+<p>비밀번호 없이 데이터베이스 접속하는 것은 보안측면에서 좋지 않습니다. 
+보안을 위해서 root 비밀번호를 설정합니다. 다음과 같이 명령을 입력합니다.</p>
+
+<p>기본적으로 패키지만 설치하는 경우 root 암호가 없다. 별도로 지정을 해주어야 한다.</p>
+
+<p>DB를 설치할 때 root 사용자가 하나 추가 된다.</p>
+
+<h4 id="mysqladmin">mysqladmin</h4>
+
+<p>mysqladmin 유틸리티를 통한 비밀번호를 변경합니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo mysqladmin -u root password '패스워드'
+</code></pre></div></div>
+
+<p>이렇게 설정한 패스워드는 mysql 접속시 다음과 같이 입력합니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Mysql -u 사용자명 -p
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="mysql-root-비빌번호-분실">mysql root 비빌번호 분실</h2>
+<hr />
+<p>root 비밀번호를 분실한 경우 다음과 같이 재설정한다.</p>
+
+<h4 id="step1-mysqld-중지">step1. mysqld 중지</h4>
+<p>먼저 마리아DB 서버데몬을 중지합니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo systemctl stop mariadb
+</code></pre></div></div>
+
+<p>마리아DB를 <code class="language-plaintext highlighter-rouge">안전 모드</code>로 실행을 합니다. 
+다음과 같이 mysql_safe 스크립트를 통하여 실행이 가능합니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo /usr/bin/mysqld_safe --skip-grant &amp;
+</code></pre></div></div>
+
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">&amp;</code> 표시를 같이하게 되면, <code class="language-plaintext highlighter-rouge">백그라운드</code> 모드로 마리아DB가 실행이 됩니다.</p>
+</blockquote>
+
+<h4 id="step2-root계정-비밀번호-변경">step2. root계정 비밀번호 변경</h4>
+
+<p>백그라운드로 실행되는 마리아DB에 접속을 합니다. 이때 패스워드는 지정하지 않아도 됩니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo mysql -u root
+</code></pre></div></div>
+
+<p>sql 쿼리를 이용하여 root 사용자의 패스워드를 변경합니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>MariaDB [mysql]&gt; update user set password=password('변경할 비밀번호') where user='root';
+MariaDB [mysql]&gt; flush privileges;
+MariaDB [mysql]&gt; exit;
+</code></pre></div></div>
+
+<h4 id="step3-접속-확인">step3. 접속 확인</h4>
+<p>변경한 패스워드를 이용하여 접속을 테스트 해봅니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql -uroot -p
+Enter password:
+MariaDB [(none)]&gt; 
+</code></pre></div></div>
+
+<h4 id="step4-서비스-재시작">step4. 서비스 재시작</h4>
+<p>root 비밀번호가 잘 변경이 되었다면, 마리아DB를 재실행 합니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo systemctl stop mariadb
+$ sudo systemctl start mariadb
+</code></pre></div></div>
+
+:ET

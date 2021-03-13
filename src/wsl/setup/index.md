@@ -1,49 +1,42 @@
 ---
 layout: home
-breadcrumb:
-- setup
 ---
 
-# WSL2 활성화
+# WSL 설치하기
 ---
-* step1: 최신 윈도우로 버전을 유지해 주세요.
-* step2: 설정->insider program에 참여를 합니다.
-* step3: windows subsystem for linux 를 활성화 합니다.
+윈도우 운영체제에 windows subsystem linux 를 설치합니다. 
 
-```console
-PS C:\Windows\system32> wsl -l
-Linux 배포용 Windows 하위 시스템:
-Ubuntu-20.04(기본값)
-```
+<br>
 
-
-```
-wsl --set-version 우분트 2
-```
-
-```
-wsl -l -v
-```
-
-
-## putty SSH 접속
-[putty](https://www.putty.org/)를 다운로드 받습니다.
-
-
-
-## 기본설정
+## sotre에서 설치하기
 ---
-
-시간대 설정
-서버의 설정이 한국/서울로 안되어 있는 경우가 있습니다.
-
-```
-```
+wsl은 `windows store`를 통하여 설치할 수 있습니다. store에 접속하여 `ubuntu`를 검색합니다.  
 
 
 
-## 로케일(locale) 변경
+![image-20210313160018686](D:\jinydev\linux\src\wsl\setup\img\image-20210313160018686.png)
 
 
-## 관리자(sudo)
+
+`시작` 버튼을 클릭하여 우분투를 설치합니다.  
+
+잠시후 설치가 완료되면 우분투 시스템의 계정과 비밀번호를 입력하는 콘솔 창이 실행이 됩니다.  
+
+
+
+![image-20210313160203732](D:\jinydev\linux\src\wsl\setup\img\image-20210313160203732.png)
+
+
+
+우분투에서 요구하는 `사용자`명, `비밀번호`를 입력하면 다음과 같이 로그인을 합니다.
+
+
+
+![image-20210313160339557](D:\jinydev\linux\src\wsl\setup\img\image-20210313160339557.png)
+
+
+
+다음서 부터는 우분투 실행시 생성한 계정으로 `자동 접속`을 하게 됩니다. 
+
+
 

@@ -1,0 +1,19 @@
+I"{<h1 id="wsl2-활성화">WSL2 활성화</h1>
+<hr />
+<ul>
+  <li>step1: 최신 윈도우로 버전을 유지해 주세요.</li>
+  <li>step2: 설정-&gt;insider program에 참여를 합니다.</li>
+  <li>step3: windows subsystem for linux 를 활성화 합니다.</li>
+</ul>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">PS C:\Windows\system32&gt;</span><span class="w"> </span>wsl <span class="nt">-l</span>
+<span class="go">Linux 배포용 Windows 하위 시스템:
+Ubuntu-20.04(기본값)
+</span></code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wsl --set-version 우분트 2
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wsl -l -v
+</code></pre></div></div>
+:ET

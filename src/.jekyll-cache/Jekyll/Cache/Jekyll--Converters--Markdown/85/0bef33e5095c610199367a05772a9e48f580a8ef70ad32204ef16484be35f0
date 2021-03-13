@@ -1,0 +1,8 @@
+I"<h1 id="갱신하기">갱신하기</h1>
+<hr />
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">hojin@DESKTOP-11LMH3B:~$</span><span class="w"> </span><span class="nb">sudo </span>apt update
+<span class="go">[sudo] password for hojin: 비밀번호입력
+</span><span class="c">...
+</span></code></pre></div></div>
+:ET
