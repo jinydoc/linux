@@ -1,39 +1,4 @@
-<!DOCTYPE html>
-<html lang="ko">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <!--SEO--><title>Linux로 개발하기</title><!--부트스트랩4-->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-        <style>
-            img {
-                max-width:100%;
-            }
-        </style>
-
-        <link rel="stylesheet" href="/assets/highlight.css">
-        <link rel="stylesheet" href="/assets/style.css">
-
-        <script data-ad-client="ca-pub-3321560028329475" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    </head>
-    <body>
-
-        <header>
-    
-</header>
-<br>
-<!-- Page Content -->
-<div class="container"><nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/">Home</a></li>
-        <!--breadcrumb loop--><li class="breadcrumb-item active">setup</li></ol>    
-</nav><div class="row">
-        <!-- Post Content Column -->
-        <div class="col-lg-9">
-        	<main role="main">
-                <section>
-                    <h1 id="wsl2-활성화">WSL2 활성화</h1>
+I"<h1 id="wsl2-활성화">WSL2 활성화</h1>
 <hr />
 
 <p>그동안 windows 운영체제는 리눅스 환경을 같이 제공하기 위한 다양한 노력이 있었습니다. 그 결과로 wsl은 버젼1과 버젼2로 나누어지게 됩니다.</p>
@@ -93,56 +58,4 @@ WSL 2와의 주요 차이점에 대한 자세한 내용은 https://aka.ms/wsl2�
 
 <p>wsl2 버젼으로 잘 변경이 된 것을 확인할 수 있습니다.</p>
 
-
-                </section>        		
-            </main>
-        </div>
-
-        <!-- Sidebar Column -->
-        <div class="col-md-3">
-        	<aside><ul class="list-group">
-    <li class="list-group-item"><a href="/setup">WSL설치</a></li>
-    <li class="list-group-item"><a href="/shell">명령어</a></li>
-    <li class="list-group-item"><a href="/gcc">gcc</a> &nbsp;/&nbsp; <a href="/gcc/g2plus">g++</a></li>
-    <li class="list-group-item"><a href="/python">python</a></li>
-</ul>
-<br>
-</aside>
-        </div>
-    </div>
-    <!-- /.row -->
-</div>
-<!-- /.container -->
- 
-        <div class="container">
-            <!--구글 애드센스-->
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <ins class="adsbygoogle"
-                style="display:block"
-                data-ad-format="fluid"
-                data-ad-layout-key="-fb+5w+4e-db+86"
-                data-ad-client="ca-pub-3321560028329475"
-                data-ad-slot="6043271504"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-
-        <!--부트스트랩4-->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-160048106-1"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'UA-160048106-1');
-        </script>
-
-    </body>
-
-</html>
+:ET

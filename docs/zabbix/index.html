@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--SEO--><title>Linux로 개발하기</title><!--부트스트랩4-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <style>
+            img {
+                max-width:100%;
+            }
+        </style>
+
+        <link rel="stylesheet" href="/assets/highlight.css">
+        <link rel="stylesheet" href="/assets/style.css">
+
+        <script data-ad-client="ca-pub-3321560028329475" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    </head>
+    <body>
+
+        <header>
+    
+</header>
+<br>
+<!-- Page Content -->
+<div class="container"><nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <!--breadcrumb loop--></ol>    
+</nav><div class="row">
+        <!-- Post Content Column -->
+        <div class="col-lg-9">
+        	<main role="main">
+                <section>
+                    <h1 id="zabbix-설치">zabbix 설치</h1>
+
+<p>자빅스는 손쉬운 설치를 위해서 설치 스크립트 명령을 자동으로 생성해 줍니다.<br />
+<code class="language-plaintext highlighter-rouge">https://www.zabbix.com/download</code> 로 접속을 합니다.</p>
+
+<p>자신의 플렛폼 사항을 선택합니다.</p>
+
+<p><img src="D:\jinydev\linux\src\zabbix\img\image-20210313162456263.png" alt="image-20210313162456263" /></p>
+
+<h2 id="ubuntu--mysql--apache-환경-설치">Ubuntu + mysql + apache 환경 설치</h2>
+
+<h5 id="a-install-zabbix-repository">a. Install Zabbix repository</h5>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># wget https://repo.zabbix.com/zabbix/5.2/ubuntu/pool/main/z/zabbix-release/zabbix-release_5.2-1+ubuntu20.04_all.deb# dpkg -i zabbix-release_5.2-1+ubuntu20.04_all.deb# apt update
+</code></pre></div></div>
+
+<h5 id="b-install-zabbix-server-frontend-agent">b. Install Zabbix server, frontend, agent</h5>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># apt install zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-agent
+</code></pre></div></div>
+
+<h5 id="c-create-initial-database">c. Create initial database</h5>
+
+<p>](https://www.zabbix.com/documentation/5.2/manual/appendix/install/db_scripts)</p>
+
+<p>Make sure you have database server up and running.</p>
+
+<p>Run the following on your database host.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># mysql -uroot -ppasswordmysql&gt; create database zabbix character set utf8 collate utf8_bin;mysql&gt; create user zabbix@localhost identified by 'password';mysql&gt; grant all privileges on zabbix.* to zabbix@localhost;mysql&gt; quit;
+</code></pre></div></div>
+
+<p>On Zabbix server host import initial schema and data. You will be prompted to enter your newly created password.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># zcat /usr/share/doc/zabbix-server-mysql*/create.sql.gz | mysql -uzabbix -p zabbix
+</code></pre></div></div>
+
+<h5 id="d-configure-the-database-for-zabbix-server">d. Configure the database for Zabbix server</h5>
+
+<p>Edit file /etc/zabbix/zabbix_server.conf</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DBPassword=password
+</code></pre></div></div>
+
+<h5 id="e-start-zabbix-server-and-agent-processes">e. Start Zabbix server and agent processes</h5>
+
+<p>Start Zabbix server and agent processes and make it start at system boot.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># systemctl restart zabbix-server zabbix-agent apache2# systemctl enable zabbix-server zabbix-agent apache2
+</code></pre></div></div>
+
+<h5 id="f-configure-zabbix-frontend">f. Configure Zabbix frontend</h5>
+
+<p>Connect to your newly installed Zabbix frontend: http://server_ip_or_name/zabbix
+Follow steps described in Zabbix documentation: <a href="https://www.zabbix.com/documentation/5.2/manual/installation/install#installing_frontend">Installing frontend</a></p>
+
+                </section>        		
+            </main>
+        </div>
+
+        <!-- Sidebar Column -->
+        <div class="col-md-3">
+        	<aside><ul class="list-group">
+    <li class="list-group-item"><a href="/setup">WSL설치</a></li>
+    <li class="list-group-item"><a href="/shell">명령어</a></li>
+    <li class="list-group-item"><a href="/gcc">gcc</a> &nbsp;/&nbsp; <a href="/gcc/g2plus">g++</a></li>
+    <li class="list-group-item"><a href="/python">python</a></li>
+</ul>
+<br>
+</aside>
+        </div>
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+ 
+        <div class="container">
+            <!--구글 애드센스-->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-format="fluid"
+                data-ad-layout-key="-fb+5w+4e-db+86"
+                data-ad-client="ca-pub-3321560028329475"
+                data-ad-slot="6043271504"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <!--부트스트랩4-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-160048106-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-160048106-1');
+        </script>
+
+    </body>
+
+</html>
